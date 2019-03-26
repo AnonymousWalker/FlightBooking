@@ -12,3 +12,21 @@ body {
     width: 100%;
     background-color: #a6beff;
 }
+.flex-container {
+  display: flex;
+  align-items: stretch;
+  background-color: White;
+  height: 150px;
+  padding: 40px;
+}
+
+.flex-container > div {
+  background-color: Grey;
+  color: white;
+  width: 100px;
+  margin: 20px;
+  text-align: center;
+  line-height: 25px;
+  font-size: 25px;
+}
+
