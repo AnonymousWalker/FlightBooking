@@ -2,6 +2,10 @@ body {
     margin:0px;
 }
 
+a {
+    text-decoration: none;
+}
+
 .body {
     width: 100%;
     height: 100%;
@@ -12,6 +16,7 @@ body {
     width: 100%;
     background-color: #a6beff;
 }
+
 .flex-container {
   display: flex;
   align-items: stretch;
@@ -30,3 +35,59 @@ body {
   font-size: 25px;
 }
 
+.nav-bar * {
+    font-size: 15px;
+    font-family: Montserrat, Arial
+}
+
+.row-flex {              /*set parent block flexible*/
+    display: flex;
+    align-items: center;
+}
+
+.row-flex::after {       /*clear floats after columns*/
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.left-group {
+    margin-left: 20px;
+    flex-grow: 1;
+}
+
+.right-group {
+    margin-right: 20px;
+    flex-grow: 1;
+    text-align: right;
+}
+
+.login-btn {
+    display: inline-flex;
+    background: transparent;
+    border: #89b58e 2px solid;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.login-btn > span {
+    margin: auto 10px;
+}
+
+.user-icon {
+    background: #b0ffe6;
+    border-radius: 50%;
+}
+
+.account-popup {
+    width: 120px;
+    height: 80px;
+    background: #e4f5f0;
+    border: 1pt solid #bba9a9;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 1;
+    top: 40px;
+    right: 10px;
+}
