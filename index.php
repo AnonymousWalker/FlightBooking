@@ -8,15 +8,7 @@
     </head>
     <body>
         <div class="body">
-            <div class="nav-bar">
-                <div>
-                    <img width="45" height="45" src="images/ticket.png"/>
-                </div>
-                <div>
-                    <a href="#">Login</a>
-                    <a href="#">Register</a>
-                </div>
-            </div>
+            
         </div>
     </body>
 </html>
