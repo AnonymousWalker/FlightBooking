@@ -25,7 +25,11 @@ class Controller {
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                echo $row["DepartureDate"] . $row["DepartureCity"] . $row["Destination"];
+                $depDate = $row["DepartureDate"] ;
+                $cityDep = $row["DepartureCity"];
+                $cityArr = $row["Destination"] ;
+                $price = $row["Price"];
+                include '_ticket.php';
             }
         } else {
             echo "0 results";
