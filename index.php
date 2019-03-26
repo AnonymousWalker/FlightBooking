@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="body">
-            
+            <?php include 'navigationBar.php';?>    
         </div>
     </body>
 </html>

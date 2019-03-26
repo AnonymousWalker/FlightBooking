@@ -34,10 +34,12 @@ a {
 }
 
 .left-group {
+    margin-left: 20px;
     flex-grow: 1;
 }
 
 .right-group {
+    margin-right: 20px;
     flex-grow: 1;
     text-align: right;
 }
@@ -45,7 +47,8 @@ a {
 .login-btn {
     display: inline-flex;
     background: transparent;
-    border: none;
+    border: #89b58e 2px solid;
+    border-radius: 8px;
     cursor: pointer;
     align-items: center;
 }
@@ -57,4 +60,16 @@ a {
 .user-icon {
     background: #b0ffe6;
     border-radius: 50%;
+}
+
+.account-popup {
+    width: 120px;
+    height: 80px;
+    background: #e4f5f0;
+    border: 1pt solid #bba9a9;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 1;
+    top: 40px;
+    right: 10px;
 }
