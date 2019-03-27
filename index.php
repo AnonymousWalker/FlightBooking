@@ -1,22 +1,19 @@
 <!DOCTYPE html>
+<?php require_once('controller.php'); ?>
 
-<html>
+<html style="height: 100%;">
     <head>
         <meta charset="UTF-8">
         <title>Flight Booking</title>
         <link rel="stylesheet" href="CSS/home.css"/>
     </head>
     <body>
-        <div class="body">
-            <div class="nav-bar">
-                <div>
-                    <img width="45" height="45" src="images/ticket.png"/>
-                </div>
-                <div>
-                    <a href="#">Login</a>
-                    <a href="#">Register</a>
-                </div>
-            </div>
+        <?php include 'navigationBar.php'; ?>
+        <div class="main">
+            <?php
+            $controller = new Controller();
+            $controller->getBookedFlights();
+            ?>
         </div>
     </body>
 </html>
