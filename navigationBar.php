@@ -15,7 +15,8 @@
             </button>
         </div>
         <div class="account-popup">
-            <?php if (session_status() == PHP_SESSION_ACTIVE && $_SESSION['logged'] == true){
+            <?php echo session_status(); 
+            if (session_status() == PHP_SESSION_ACTIVE && $_SESSION['logged'] == true){
                 echo "Hello ".$_SESSION['firstname']."!";
             } else {
                 echo '<a href="login.php">Login</a>
