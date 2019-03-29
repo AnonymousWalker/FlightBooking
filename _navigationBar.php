@@ -15,12 +15,20 @@
             </button>
         </div>
         <div class="account-popup">
-            <?php echo session_status(); 
-            if (session_status() == PHP_SESSION_ACTIVE && $_SESSION['logged'] == true){
-                echo "Hello ".$_SESSION['firstname']."!";
+            <?php 
+            if (session_status() != PHP_SESSION_ACTIVE){ 
+                session_start();
+            }
+                
+            if (isset($_SESSION['logged']) && $_SESSION['logged'] == true){
+                echo 'Hello '.$_SESSION['firstname'].'!'.
+                        "<br/>"
+                        . '<a href="#">My flights</a>'
+                        .'<br/>'
+                        .'<form method="GET" action="index.php"><a id="logout-btn" href="#"><input type="submit" name="logout" value="Logout"/></a></form>';
             } else {
                 echo '<a href="login.php">Login</a>
-                    <a href="#">Sign Up</a>';
+                    <a href="register.php">Sign Up</a>';
             }
             ?>
         </div>

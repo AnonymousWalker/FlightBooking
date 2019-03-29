@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="CSS/home.css"/>
     </head>
     <body>
-        <?php require_once 'navigationBar.php';?>
+        <?php require_once '_navigationBar.php';?>
         <div class="log-form">
             <h2>Login to your account</h2>
             <form method="POST" action="login.php">
@@ -36,17 +36,18 @@ if (isset($_POST['submit'])) {
                 . "WHERE Username = '" . $username . "' AND Password = '" . $password . "' ;";
         
         $result = $conn->query($query);
-       
+        
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
-            session_start();
+            if (session_status() != PHP_SESSION_ACTIVE) session_start();
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
             $_SESSION['firstname'] = $row['FirstName'];
             $_SESSION['logged'] = true;
             header("Location: index.php");
+             
         } else {
-            echo "User doesn't exist! Please try again.";
+            echo "Incorrect username or password! Please try again.";
         }
     }
 }

@@ -14,21 +14,31 @@ a {
 }
 
 .flex-container {
-  display: flex;
-  align-items: stretch;
-  background-color: White;
-  height: 150px;
-  padding: 40px;
+    display: flex;
+    align-items: stretch;
+    background-color: White;
+    width: 85%;
+    height: 150px;
+    padding: 10px;
+    border: 2px solid #e8e7e7;
+    border-radius: 5px;
+    margin: 30px auto;
+}
+
+.flex-container:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 2px solid #add6ef;;
 }
 
 .flex-container > div {
-  background-color: #68f57e;
-  color: white;
-  width: 100px;
-  margin: 20px;
-  text-align: center;
-  height: 70%;
-  font-size: 25px;
+    background-color: #68f57e;
+    color: white;
+    width: 100px;
+    margin: auto 10px auto 10px;
+    text-align: center;
+    height: 70%;
+    font-size: 25px;
 }
 
 .nav-bar * {
@@ -42,9 +52,9 @@ a {
 }
 
 .row-flex::after {       /*clear floats after columns*/
-  content: "";
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .left-group {
@@ -77,15 +87,16 @@ a {
 }
 
 .account-popup {
-    width: 120px;
+    width: 150px;
     height: 80px;
     background: #e4f5f0;
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
     border: 1pt solid #bba9a9;
     border-radius: 8px;
     position: absolute;
     z-index: 1;
-    top: 40px;
-    right: 20px;
+    top: 55px;
+    right: 6px;
 }
 
 .main {
