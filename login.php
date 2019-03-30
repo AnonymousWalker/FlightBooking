@@ -12,7 +12,8 @@
                 <div class="flex-column">
                     <input type="text" name="username" title="username" placeholder="Username" />
                     <input type="password" name="password" title="username" placeholder="Password" />
-                    <button type="submit" name="submit" class="btn" style="background: #68f57e">Login</button>
+                    <button type="submit" name="login" 
+                            class="btn" style="background: #68f57e; margin-top: 20px">Login</button>
                 </div>
             </form>
         </div>
@@ -20,7 +21,7 @@
 </html>
 
 <?php
-if (isset($_POST['submit'])) {
+if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -47,7 +48,7 @@ if (isset($_POST['submit'])) {
             header("Location: index.php");
              
         } else {
-            echo "Incorrect username or password! Please try again.";
+            echo "<h3>Invalid username or password! Please try again.</h3>";
         }
     }
 }

@@ -3,4 +3,7 @@ $(document).ready(function () {
         $("#modal-popup").show();
     });
 
+    $(".close-modal").click(function () {
+        $("#modal-popup").hide();
+    });
 });

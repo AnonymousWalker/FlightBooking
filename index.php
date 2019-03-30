@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="CSS/home.css"/>
         <link rel="stylesheet" href="CSS/modal.css"/>
         <script src="JS/lib/jquery-3.3.1.min.js"></script>
-        <script src="JS/modal.js"></script>
         <script src="JS/home.js"></script>
     </head>
     <body>
