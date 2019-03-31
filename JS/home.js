@@ -1,9 +1,12 @@
 $(document).ready(function () {
-    $(".flex-container").click(function () {
-        $("#modal-popup").show();
+    $(".account-btn").click(function () {
+        $(".account-popup").css('visibility','visible');
     });
-
-    $(".close-modal").click(function () {
-        $("#modal-popup").hide();
+    
+    $(document).mouseup(function (e){
+       var popupMenu = $(".account-popup");
+       if (!popupMenu.is(e.target) && popupMenu.has(e.target).length === 0){
+           popupMenu.css('visibility','hidden');
+       }
     });
 });

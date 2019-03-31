@@ -26,7 +26,6 @@ a {
 }
 
 .flex-container:hover {
-    cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border: 2px solid #add6ef;;
 }
@@ -74,10 +73,9 @@ a {
     border: #89b58e 2px solid;
     border-radius: 8px;
     cursor: pointer;
-    align-items: center;
 }
 
-.login-btn > span {
+.login-btn span {
     margin: auto 10px;
 }
 
@@ -87,8 +85,10 @@ a {
 }
 
 .account-popup {
+    visibility: hidden;
     width: 150px;
-    height: 80px;
+    height: auto;
+    padding: 10px;
     background: #e4f5f0;
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
     border: 1pt solid #bba9a9;
@@ -102,4 +102,27 @@ a {
 .main {
     height: 100%;
     margin:auto 20px auto 20px;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-column::after {       /*clear floats after columns*/
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.account-btn {
+    background-color: #fff9f4;
+}
+.login-btn:hover, account-btn:hover {
+    background-color: #f5ca78;
+}
+.login-btn a {
+    width: auto;
+    margin: auto;
+    padding: 5px;
 }

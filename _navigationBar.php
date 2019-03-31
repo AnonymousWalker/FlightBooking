@@ -7,14 +7,14 @@
             </a>
         </div>
         <div class="right-group">
-            <button class="login-btn">
+            <button class="account-btn login-btn">
                 <div>
                     <img class="user-icon" width="30" height="30" src="images/user-account-icon.svg">
                 </div>
                 <span>Account</span>
             </button>
         </div>
-        <div class="account-popup">
+        <div class="account-popup flex-column">
             <?php 
             if (session_status() != PHP_SESSION_ACTIVE){ 
                 session_start();
@@ -23,12 +23,17 @@
             if (isset($_SESSION['logged']) && $_SESSION['logged'] == true){
                 echo 'Hello '.$_SESSION['firstname'].'!'.
                         "<br/>"
-                        . '<a href="#">My flights</a>'
-                        .'<br/>'
-                        .'<form method="GET" action="index.php"><a id="logout-btn" href="#"><input type="submit" name="logout" value="Logout"/></a></form>';
+                        .'<form method="GET" action="index.php">'
+                        . '<a id="logout-btn" href="#"><input type="submit" name="logout" value="Logout"/></a>'
+                        . '</form>';
             } else {
-                echo '<a href="login.php">Login</a>
-                    <a href="register.php">Sign Up</a>';
+                echo '<div class="login-btn">
+                    <a href="login.php"><span>Login</span></a>
+                    </div>
+                    <br/>
+                    <div class="login-btn">
+                    <a href="register.php"><span>Sign Up</span></a>
+                    </div>';
             }
             ?>
         </div>

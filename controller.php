@@ -19,21 +19,27 @@ class Controller {
         //"Database Connected"
     }
 
-    function getBookedFlights() {
-        $query = "SELECT * FROM Booking";
+    function getFlights($userID = null) {
+        if (isset($userID)) {
+            $query = "SELECT * FROM Booking WHERE UserID = '" . $userID . "'";
+        } else {
+            $query = "SELECT * FROM Booking";
+        }
+        
         $result = $this->conn->query($query);     //result has a collection of 'rows' returned from query
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
-                $depDate = $row["DepartureDate"] ;
+                $bookingid = $row["BookingID"];
+                $airline = $row["Airline"];
+                $depDate = $row["DepartureDate"];
                 $cityDep = $row["DepartureCity"];
-                $cityArr = $row["Destination"] ;
+                $cityArr = $row["Destination"];
                 $price = $row["Price"];
                 include '_ticket.php';
             }
         } else {
-            echo "0 results";
+            echo "<h4>You haven't booked any flight.</h4>";
         }
     }
-
 }

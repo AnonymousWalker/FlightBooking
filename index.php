@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<?php require_once('controller.php'); ?>
+<?php 
+require_once 'controller.php'; 
+include_once '_navigationBar.php';
+?>
 
 <html style="height: 100%;">
     <head>
@@ -11,26 +14,12 @@
         <script src="JS/home.js"></script>
     </head>
     <body>
-        <?php include '_navigationBar.php'; ?>
         <div class="main">
+            <h2 style="margin-left: 20px">All Flights</h2>
             <?php
             $controller = new Controller();
-            $controller->getBookedFlights();
+            $controller->getFlights();
             ?>
-        </div>
-        <div id="modal-popup" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close-modal">&times;</span>
-                    <h2>Booking confirmation</h2>
-                </div>
-                <div class="modal-body">
-                    <h3>You are booking this flight?</h3>
-                    <button>Book now</button>
-                    <button>Maybe not</button>
-                </div>
-            </div>
-
         </div>
     </body>
 </html>
@@ -38,6 +27,7 @@
 <?php
 if (session_status() == PHP_SESSION_ACTIVE && isset($_GET['logout'])) {
     $_SESSION['logged'] = false;
+    $_SESSION['userid'] = '';
     $_SESSION['username'] = '';
     $_SESSION['firstname'] = '';
     header('Location: index.php');

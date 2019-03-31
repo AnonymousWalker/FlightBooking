@@ -3,12 +3,15 @@
         <title>Login</title>
         <link rel="stylesheet" href="CSS/login.css"/>
         <link rel="stylesheet" href="CSS/home.css"/>
+        <script src="JS/lib/jquery-3.3.1.min.js"></script>
+        <script src="JS/login.js"></script>
+        <script src="JS/home.js"></script>
     </head>
     <body>
         <?php require_once '_navigationBar.php';?>
         <div class="log-form">
             <h2>Login to your account</h2>
-            <form method="POST" action="login.php">
+            <form id="login-form" method="POST" action="login.php">
                 <div class="flex-column">
                     <input type="text" name="username" title="username" placeholder="Username" />
                     <input type="password" name="password" title="username" placeholder="Password" />
@@ -41,11 +44,11 @@ if (isset($_POST['login'])) {
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
             if (session_status() != PHP_SESSION_ACTIVE) session_start();
-            $_SESSION['username'] = $username;
-            $_SESSION['password'] = $password;
-            $_SESSION['firstname'] = $row['FirstName'];
             $_SESSION['logged'] = true;
-            header("Location: index.php");
+            $_SESSION['userid'] = $row['UserID'];
+            $_SESSION['username'] = $username;
+            $_SESSION['firstname'] = $row['FirstName'];
+            header("Location: myFlights.php");
              
         } else {
             echo "<h3>Invalid username or password! Please try again.</h3>";
