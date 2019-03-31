@@ -7,11 +7,11 @@
             </a>
         </div>
         <div class="right-group">
-            <button class="account-btn login-btn">
+            <button class="account-btn">
                 <div>
                     <img class="user-icon" width="30" height="30" src="images/user-account-icon.svg">
                 </div>
-                <span>Account</span>
+                <span class="button-text">Account</span>
             </button>
         </div>
         <div class="account-popup flex-column">
@@ -21,10 +21,16 @@
             }
                 
             if (isset($_SESSION['logged']) && $_SESSION['logged'] == true){
-                echo 'Hello '.$_SESSION['firstname'].'!'.
-                        "<br/>"
+                echo '<p>Hello '.$_SESSION['firstname'].'!</p>'
+                        //"<br/>"
                         .'<form method="GET" action="index.php">'
-                        . '<a id="logout-btn" href="#"><input type="submit" name="logout" value="Logout"/></a>'
+                        .'<div class="login-btn">'
+                        . '<a id="log-out-btn" href="#">'
+                        . '<span>'
+                        //. '<input id="log-out-btn" type="button" name="logout" value="Logout"/>'
+                        .'Logout'
+                        . '</span></a>'
+                        .'</div>'
                         . '</form>';
             } else {
                 echo '<div class="login-btn">

@@ -31,6 +31,7 @@ class Controller {
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $bookingid = $row["BookingID"];
+                $username = $row["Username"];
                 $airline = $row["Airline"];
                 $depDate = $row["DepartureDate"];
                 $cityDep = $row["DepartureCity"];

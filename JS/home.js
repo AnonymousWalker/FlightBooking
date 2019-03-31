@@ -9,4 +9,17 @@ $(document).ready(function () {
            popupMenu.css('visibility','hidden');
        }
     });
+    
+    
+});
+
+$("#log-out-btn").on('click',function (){
+    $.ajax({
+        type: 'GET',
+        url: 'index.php',
+        data: 'logout',
+        success: function(result) {
+            location.reload();
+        }
+    });
 });
