@@ -5,16 +5,13 @@
         <group>
             <file>file:/D:/XAMPP/htdocs/FlightBooking/index.php</file>
             <file>file:/D:/XAMPP/htdocs/FlightBooking/login.php</file>
-<<<<<<< HEAD
             <file>file:/D:/XAMPP/htdocs/FlightBooking/controller.php</file>
+            <file>file:/D:/XAMPP/htdocs/FlightBooking/JS/login.js</file>
             <file>file:/D:/XAMPP/htdocs/FlightBooking/CSS/home.css</file>
             <file>file:/D:/XAMPP/htdocs/FlightBooking/JS/home.js</file>
+            <file>file:/D:/XAMPP/htdocs/FlightBooking/JS/modal.js</file>
+            <file>file:/D:/XAMPP/htdocs/FlightBooking/CSS/login.css</file>
             <file>file:/D:/XAMPP/htdocs/FlightBooking/_ticket.php</file>
-=======
-            <file>file:/D:/XAMPP/htdocs/FlightBooking/_navigationBar.php</file>
-            <file>file:/D:/XAMPP/htdocs/FlightBooking/controller.php</file>
-            <file>file:/D:/XAMPP/htdocs/FlightBooking/register.php</file>
->>>>>>> parent of bd57003... signup with validation
         </group>
     </open-files>
 </project-private>

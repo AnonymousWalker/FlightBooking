@@ -117,6 +117,7 @@ a {
 }
 
 .flex-container {
+    cursor: pointer;
     display: flex;
     align-items: stretch;
     background-color: White;

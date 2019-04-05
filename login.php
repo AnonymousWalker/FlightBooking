@@ -20,8 +20,8 @@
                 $dbUsername = "atran";
                 $dbPassword = "1214730";
                 $dbName = "mydb";
-                $conn = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
-
+                //$conn = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
+                $conn = Controller::connectDatabase();
                 $query = "SELECT * FROM UserAccount "
                         . "WHERE Username = '" . $username . "' AND Password = '" . $password . "' ;";
 
@@ -56,8 +56,6 @@
     </body>
 </html>
 
-<<<<<<< HEAD
-=======
 <?php
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
@@ -90,4 +88,3 @@ if (isset($_POST['submit'])) {
         }
     }
 }
->>>>>>> parent of bd57003... signup with validation

@@ -2,21 +2,37 @@
 
 class Controller {
 
-    var $servername = "localhost";
-    var $username = "atran";
-    var $password = "1214730";
-    var $dbName = "mydb";
-    var $conn;
+//    var $servername = "localhost";
+//    var $username = "atran";
+//    var $password = "1214730";
+//    var $dbName = "mydb";
+//    var $conn;
+
+    static $servername = "localhost";
+    static $username = "atran";
+    static $password = "1214730";
+    static $dbName = "mydb";
+    static $conn;
 
     function __construct() {
-        // Create connection
-        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbName);
+//        // Create connection
+//        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbName);
+//
+//        // Check connection
+//        if ($this->conn->connect_error) {
+//            die("Database Connection failed: " . $this->conn->connect_error);
+//        }
+//        //"Database Connected"
+        self::$conn = new mysqli(self::$servername, self::$username, self::$password, self::$dbName);
+    }
 
-        // Check connection
-        if ($this->conn->connect_error) {
-            die("Database Connection failed: " . $this->conn->connect_error);
+    static function connectDatabase() {
+        self::$conn = new mysqli(self::$servername, self::$username, self::$password, self::$dbName);
+        if (self::$conn->connect_error) {
+            die("Database Connection failed: " . self::$conn->connect_error);
+            return null;
         }
-        //"Database Connected"
+        return self::$conn;
     }
 
     function getFlights($userID = null) {
@@ -25,11 +41,11 @@ class Controller {
         } else {
             $query = "SELECT * FROM Booking";
         }
-        
-        $result = $this->conn->query($query);     //result has a collection of 'rows' returned from query
 
+        //$result = $this->conn->query($query);     //result has a collection of 'rows' returned from query
+        $result = self::$conn->query($query);
         if ($result->num_rows > 0) {
-            echo '<p style="margin-left: 20px">'.mysqli_num_rows($result).' count(s)</p>';
+            echo '<p style="margin-left: 20px">' . mysqli_num_rows($result) . ' count(s)</p>';
             while ($row = $result->fetch_assoc()) {
                 $bookingid = $row["BookingID"];
                 $username = $row["Username"];
@@ -44,4 +60,5 @@ class Controller {
             echo "<h4>You haven't booked any flight.</h4>";
         }
     }
+
 }
