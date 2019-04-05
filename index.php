@@ -19,20 +19,10 @@ include_once '_navigationBar.php';
             <img src="https://www.time8.in/wp-content/uploads/2018/01/Thailand-Flight.jpg" style="width: 100%;"/>
         </div>
         <div class="main">
+            <h2 style="margin-left: 20px">All available flights here!</h2>
             <?php
-            ?>
-
-            <?php
-            $controller = new Controller();
-            if (isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
-                echo '<h2 style="margin-left: 20px">Hello, ' . $_SESSION['firstname'] .
-                '! Your booked flights are listed below.' . '</h2>';
-                $userID = $_SESSION['userid'];
-                $controller->getFlights($userID);
-            } else {
-                echo '<h2 style="margin-left: 20px">All booked flights. Login to see yours!</h2>';
+                $controller = new Controller();
                 $controller->getFlights();
-            }
             ?>
         </div>
 
@@ -43,7 +33,7 @@ include_once '_navigationBar.php';
                     <h2>Booking confirmation</h2>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" id="flightId"/>
+                    <input type="hidden" id="ticketId"/>
                     <h3>You are booking this flight?</h3>
                     <button id="confirm-booking">Book now</button>
                     <button>Maybe not</button>
@@ -55,19 +45,20 @@ include_once '_navigationBar.php';
 </html>
 
 <?php
-if (session_status() == PHP_SESSION_ACTIVE) {
-    if (isset($_GET['logout'])) {
+if (isset($_GET['logout']) && session_status() == PHP_SESSION_ACTIVE) {
         $_SESSION['logged'] = false;
         $_SESSION['userid'] = '';
         $_SESSION['username'] = '';
         $_SESSION['firstname'] = '';
         header('Location: index.php');
-    }
 }
 
-if (isset($_GET['flightId'])) {
+if (isset($_GET['ticketId'])) {
     if (isset($_SESSION['logged']) && $_SESSION['logged'] == true){
         //book flight
-        
+        $userId = $_SESSION['userid'];
+        $ticketId = $_GET['ticketId'];
+        $controller->bookFlight($userID,$ticketId);
+
     }
 }

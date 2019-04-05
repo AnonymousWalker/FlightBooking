@@ -1,4 +1,7 @@
-<?php require_once '_navigationBar.php'; ?>
+<?php 
+require_once '_navigationBar.php'; 
+require_once 'controller.php';
+?>
 <html>
     <head>
         <title>Login</title>
@@ -16,17 +19,17 @@
 
             if ($username != '' && $password != '') {
                 // authenticate user in db
-                $servername = "localhost";
-                $dbUsername = "atran";
-                $dbPassword = "1214730";
-                $dbName = "mydb";
-                //$conn = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
-                $conn = Controller::connectDatabase();
+//                $servername = "localhost";
+//                $dbUsername = "atran";
+//                $dbPassword = "1214730";
+//                $dbName = "mydb";
+//                $conn = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
+                $controller = new Controller();
+                $conn = $controller->getDatabaseConnection();
                 $query = "SELECT * FROM UserAccount "
                         . "WHERE Username = '" . $username . "' AND Password = '" . $password . "' ;";
 
                 $result = $conn->query($query);
-
                 if ($result->num_rows == 1) {
                     $row = $result->fetch_assoc();
                     if (session_status() != PHP_SESSION_ACTIVE)
@@ -63,11 +66,8 @@ if (isset($_POST['submit'])) {
 
     if ($username != '' && $password != '') {
         // authenticate user in db
-        $servername = "localhost";
-        $dbUsername = "atran";
-        $dbPassword = "1214730";
-        $dbName = "mydb";
-        $conn = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
+        $controller = new Controller();
+        $conn = $controller->getDatabaseConnection();
 
         $query = "SELECT * FROM UserAccount "
                 . "WHERE Username = '" . $username . "' AND Password = '" . $password . "' ;";
@@ -77,11 +77,12 @@ if (isset($_POST['submit'])) {
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
             if (session_status() != PHP_SESSION_ACTIVE) session_start();
+            $_SESSION['userid'] = $row['UserID'];
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
             $_SESSION['firstname'] = $row['FirstName'];
             $_SESSION['logged'] = true;
-            header("Location: index.php");
+            header("Location: myFlight.php");
              
         } else {
             echo "Incorrect username or password! Please try again.";

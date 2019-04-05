@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    //validation
     $("#signup-form").submit(function (e) {
         var uname = $("[name='username']").val();
         var pw = $("[name='password']").val();
@@ -11,7 +12,7 @@ $(document).ready(function () {
             alert("Invalid input field(s), please try again!");
         }
     });
-
+    //validation
     $("#login-form").submit(function (e) {
         var uname = $("[name='username']").val();
         var pw = $("[name='password']").val();

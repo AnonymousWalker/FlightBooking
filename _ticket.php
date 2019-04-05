@@ -1,4 +1,4 @@
-<div class="flex-container" data-bookingid=<?php echo $bookingid ?>>
+<div class="flex-container" data-ticketid=<?php echo $ticketid ?>>
     <div style="flex-grow: 2">
         <p>
             <span class="ticket-header">Departure Date:</span><br>

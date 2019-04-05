@@ -1,25 +1,30 @@
 
 $(document).ready(function (){
     $(".flex-container").click(function (){
-        var id = $(this).data('bookingid');
+        var id = $(this).data('ticketid');
         $("#modal-popup").css("visibility","visible");
-        $("#flightId").val(id);
+        $("#ticketId").val(id);
     });
     
     $("#confirm-booking").click(function(){
-       var flightId = $("#flightId").val();
-       if (flightId != null && flightId != ''){
+       var ticketId = $("#ticketId").val();
+       var message = '';
+       if (ticketId != null && ticketId != ''){
            $.ajax({
                type: "GET",
                url: "index.php",
-               data: flightId,
-               success: function (response){
-                   
+               data: ticketId,
+               success: function (){
+                   message = "Successfully booked";
                },
-               error: function (message) {
-                   
+               error: function () {
+                   message = "An error has occured! Please try again later.";
                }
            });
+       }
+       $("#modal-popup").css("visibility","hidden");
+       if (message != '') {
+           alert(message);
        }
     });
     
