@@ -13,6 +13,9 @@ include_once '_navigationBar.php';
         <script src="JS/home.js"></script>
     </head>
     <body>
+        <div>
+            <img src="https://www.time8.in/wp-content/uploads/2018/01/Thailand-Flight.jpg" style="width: 100%;"/>
+        </div>
         <div class="main">
             <?php
             ?>
@@ -25,7 +28,7 @@ include_once '_navigationBar.php';
                 $userID = $_SESSION['userid'];
                 $controller->getFlights($userID);
             } else {
-                echo '<h2 style="margin-left: 20px">All booked flights</h2>';
+                echo '<h2 style="margin-left: 20px">All booked flights. Login to see yours!</h2>';
                 $controller->getFlights();
             }
             ?>

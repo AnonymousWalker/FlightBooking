@@ -112,6 +112,10 @@ a {
     margin:auto 20px auto 20px;
 }
 
+.main * {
+    font-family: Tahoma, Arial;
+}
+
 .flex-container {
     display: flex;
     align-items: stretch;

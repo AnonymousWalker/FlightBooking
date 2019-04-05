@@ -29,6 +29,7 @@ class Controller {
         $result = $this->conn->query($query);     //result has a collection of 'rows' returned from query
 
         if ($result->num_rows > 0) {
+            echo '<p style="margin-left: 20px">'.mysqli_num_rows($result).' count(s)</p>';
             while ($row = $result->fetch_assoc()) {
                 $bookingid = $row["BookingID"];
                 $username = $row["Username"];

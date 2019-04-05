@@ -1,0 +1,24 @@
+CREATE TABLE Booking (
+BookingID int not null auto_increment,
+Username varchar(20) not null,
+Airline varchar(30) not null,
+DepartureCity varchar(20),
+Destination varchar(50),
+DepartureDate date,
+Price float not null,
+UserID int not null,
+PRIMARY KEY (BookingID),
+FOREIGN KEY (UserID) REFERENCES UserAccount(UserID) ON UPDATE CASCADE
+
+);
+
+CREATE TABLE useraccount (
+  UserID int NOT NULL AUTO_INCREMENT,
+  Username varchar(20) NOT NULL,
+  Password varchar(20) NOT NULL,
+  FirstName varchar(15) NOT NULL,
+  LastName varchar(15) NOT NULL,
+  Email varchar(50) DEFAULT NULL,
+  Address varchar(100) DEFAULT NULL,
+  PRIMARY KEY (UserID)
+) ;
