@@ -13,6 +13,7 @@ $(document).ready(function () {
     
 });
 
+<<<<<<< HEAD
 $("#log-out-btn").on('click',function (){
     $.ajax({
         type: 'GET',
@@ -22,4 +23,6 @@ $("#log-out-btn").on('click',function (){
             location.reload();
         }
     });
+=======
+>>>>>>> parent of bd57003... signup with validation
 });

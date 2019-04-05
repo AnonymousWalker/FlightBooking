@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 /*.error-message{
     color: red;
 }*/
 
+=======
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+>>>>>>> parent of bd57003... signup with validation
 .log-form{
     width: 40%;
     position: relative;
