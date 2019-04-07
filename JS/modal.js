@@ -7,13 +7,13 @@ $(document).ready(function (){
     });
     
     $("#confirm-booking").click(function(){
-       var ticketId = $("#ticketId").val();
+       var tId = $("#ticketId").val();
        var message = '';
-       if (ticketId != null && ticketId != ''){
+       if (tId != null && tId != ''){
            $.ajax({
                type: "GET",
                url: "index.php",
-               data: ticketId,
+               data: { 'ticketId': tId },
                success: function (){
                    message = "Successfully booked";
                },

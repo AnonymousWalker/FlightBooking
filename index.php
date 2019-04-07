@@ -58,7 +58,8 @@ if (isset($_GET['ticketId'])) {
         //book flight
         $userId = $_SESSION['userid'];
         $ticketId = $_GET['ticketId'];
-        $controller->bookFlight($userID,$ticketId);
+        header("Location: myFlight.php");
+        //$controller->bookFlight($userID,$ticketId);
 
     }
 }
