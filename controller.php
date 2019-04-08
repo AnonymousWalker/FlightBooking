@@ -28,17 +28,16 @@ class Controller {
         return $this->conn;
     }
 
-    function getFlights($userID = null) {
-        if (isset($userID)) {
+    function getFlights($userId = 0) {
+        if ($userId != 0) {
             $query = "SELECT ub.UserID, ub.TicketID, ft.Airline, ft.DepartureCity, "
                         . "ft.Destination, ft.DepartureDate, ft.Price"
                     . " FROM UserBooking ub, FlightTicket ft "
-                    . "WHERE ub.UserID = " . $userID
+                    . "WHERE ub.UserID = ".$userId
                     . " AND ub.TicketID = ft.TicketID;";
         } else {
             $query = "SELECT * FROM FlightTicket";
         }
-
         $result = $this->conn->query($query);     //result has a collection of 'rows' returned from query
         if ($result->num_rows > 0) {
             echo '<p style="margin-left: 20px">' . mysqli_num_rows($result) . ' count(s)</p>';
@@ -60,15 +59,15 @@ class Controller {
         $query = "SELECT * FROM UserBooking where UserId = " . $userId . " and TicketId = " . $ticketId . ";";
         $result = $this->conn->query($query);
         if ($result->num_rows > 0) {
-            return "You have already booked this flight!";
+            return false;
         }
 
         $query = "INSERT INTO UserBooking (UserID, TicketID) VALUES ('%d','%d');";
         $query = sprintf($query, $userId, $ticketId);
         if ($this->conn->query($query)) {
-            return "Successfully!";
+            return true;
         }
-        return "Error booking ticket!";
+        return false;
     }
 
 }

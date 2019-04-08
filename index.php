@@ -2,6 +2,9 @@
 <?php
 require_once 'controller.php';
 include_once '_navigationBar.php';
+if (!isset($_SESSION['logged'])) {
+    $_SESSION['logged'] = 0;
+}
 ?>
 
 <html style="height: 100%;">
@@ -21,34 +24,21 @@ include_once '_navigationBar.php';
         <div class="main">
             <h2 style="margin-left: 20px">All available flights here!</h2>
             <?php
-                $controller = new Controller();
-                $controller->getFlights();
+            $controller = new Controller();
+            $controller->getFlights();
             ?>
         </div>
+        <?php include_once "_modalPopup.php" ?>
 
-        <div id="modal-popup" class="modal" style="visibility: hidden;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Booking confirmation</h2>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" id="ticketId"/>
-                    <h3>You are booking this flight?</h3>
-                    <button id="confirm-booking">Book now</button>
-                    <button class="close-modal">Maybe not</button>
-                </div>
-            </div>
-        </div>
 
     </body>
 </html>
 
 <?php
 if (isset($_GET['logout']) && session_status() == PHP_SESSION_ACTIVE) {
-        $_SESSION['logged'] = 0;
-        $_SESSION['userid'] = '';
-        $_SESSION['username'] = '';
-        $_SESSION['firstname'] = '';
-        header('Location: index.php');
+    $_SESSION['logged'] = 0;
+    $_SESSION['userid'] = '';
+    $_SESSION['username'] = '';
+    $_SESSION['firstname'] = '';
 }
 

@@ -22,12 +22,12 @@
                 
             if (isset($_SESSION['logged']) && $_SESSION['logged'] == true){
                 echo '<p>Hello '.$_SESSION['firstname'].'!</p>'
-                        //"<br/>"
+                        .'<div class="login-btn"><a href="myFlight.php"><span>My Flights</span></a></div>'
+                        .'<br>'
                         .'<form method="GET" action="index.php">'
                         .'<div class="login-btn">'
                         . '<a id="log-out-btn" href="#">'
                         . '<span>'
-                        //. '<input id="log-out-btn" type="button" name="logout" value="Logout"/>'
                         .'Logout'
                         . '</span></a>'
                         .'</div>'

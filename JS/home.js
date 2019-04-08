@@ -18,7 +18,7 @@ $("#log-out-btn").on('click', function () {
         url: 'index.php',
         data: 'logout',
         success: function (result) {
-            location.reload();
+            window.location.replace("index.php");
         }
     });
 });

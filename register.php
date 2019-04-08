@@ -3,12 +3,15 @@
         <title>Register </title>
         <link rel="stylesheet" href="CSS/login.css"/>
         <link rel="stylesheet" href="CSS/home.css"/>
+        <script src="JS/lib/jquery-3.3.1.min.js"></script>
+        <script src="JS/login.js"></script>
+        <script src="JS/home.js"></script>
     </head>
     <body>
         <?php require_once '_navigationBar.php';?>
         <div class="log-form">
             <h2>Create a new account</h2>
-            <form method="POST" action="register.php">
+            <form id="signup-form" method="POST" action="register.php">
                 <div class="flex-column">
                     <input type="text" name="username" placeholder="Username" />
                     <input type="password" name="password" placeholder="Password" />
