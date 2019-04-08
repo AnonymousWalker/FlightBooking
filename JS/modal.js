@@ -13,7 +13,7 @@ $(document).ready(function (){
            $.ajax({
                type: "GET",
                url: "index.php",
-               data: { 'ticketId': tId },
+               data: { ticketId: tId },
                success: function (){
                    message = "Successfully booked";
                },

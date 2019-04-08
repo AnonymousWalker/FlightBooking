@@ -46,7 +46,7 @@ include_once '_navigationBar.php';
 
 <?php
 if (isset($_GET['logout']) && session_status() == PHP_SESSION_ACTIVE) {
-        $_SESSION['logged'] = false;
+        $_SESSION['logged'] = 0;
         $_SESSION['userid'] = '';
         $_SESSION['username'] = '';
         $_SESSION['firstname'] = '';
@@ -59,7 +59,8 @@ if (isset($_GET['ticketId'])) {
         $userId = $_SESSION['userid'];
         $ticketId = $_GET['ticketId'];
         header("Location: myFlight.php");
-        //$controller->bookFlight($userID,$ticketId);
+        $controller = new Controller();
+        $controller->bookFlight($userID,$ticketId);
 
     }
 }

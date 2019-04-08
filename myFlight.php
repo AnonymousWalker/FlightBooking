@@ -15,7 +15,7 @@ require_once "controller.php";
         <?php
         if (session_status() != PHP_SESSION_ACTIVE)
             session_start();
-
+        echo "isset".isset($_SESSION['logged'])."logged".$_SESSION['logged']."status". session_status();
         $userId = $_SESSION['userid'];
         if (isset($userID)) {
             $controller = new Controller();
