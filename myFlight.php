@@ -1,4 +1,5 @@
 <?php
+//ob_start();
 include_once "_navigationBar.php";
 require_once "controller.php";
 ?>
@@ -24,3 +25,23 @@ require_once "controller.php";
         ?>
     </body>
 </html>
+
+
+<?php 
+//AJAX booking
+if (isset($_GET['ticketId'])) {
+    if (isset($_SESSION['logged']) && $_SESSION['logged'] == true){
+        //book flight
+        $userId = $_SESSION['userid'];
+        $ticketId = $_GET['ticketId'];
+        
+        $controller = new Controller();
+        $result = $controller->bookFlight($userId,$ticketId);
+        
+        ob_end_clean(); //clear the all html string above this 
+        header('Content-Type: application/json');
+        echo json_encode(array('message' => $result));
+    } else {
+        header("Location: login.php");
+    }
+}

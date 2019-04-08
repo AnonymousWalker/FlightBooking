@@ -29,14 +29,13 @@ include_once '_navigationBar.php';
         <div id="modal-popup" class="modal" style="visibility: hidden;">
             <div class="modal-content">
                 <div class="modal-header">
-                    <span class="close-modal">&times;</span>
                     <h2>Booking confirmation</h2>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="ticketId"/>
                     <h3>You are booking this flight?</h3>
                     <button id="confirm-booking">Book now</button>
-                    <button>Maybe not</button>
+                    <button class="close-modal">Maybe not</button>
                 </div>
             </div>
         </div>
@@ -53,14 +52,3 @@ if (isset($_GET['logout']) && session_status() == PHP_SESSION_ACTIVE) {
         header('Location: index.php');
 }
 
-if (isset($_GET['ticketId'])) {
-    if (isset($_SESSION['logged']) && $_SESSION['logged'] == true){
-        //book flight
-        $userId = $_SESSION['userid'];
-        $ticketId = $_GET['ticketId'];
-        header("Location: myFlight.php");
-        $controller = new Controller();
-        $controller->bookFlight($userID,$ticketId);
-
-    }
-}

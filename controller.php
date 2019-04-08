@@ -30,7 +30,11 @@ class Controller {
 
     function getFlights($userID = null) {
         if (isset($userID)) {
-            $query = "SELECT * FROM UserBooking WHERE UserID = '" . $userID . "'";
+            $query = "SELECT ub.UserID, ub.TicketID, ft.Airline, ft.DepartureCity, "
+                        . "ft.Destination, ft.DepartureDate, ft.Price"
+                    . " FROM UserBooking ub, FlightTicket ft "
+                    . "WHERE ub.UserID = " . $userID
+                    . " AND ub.TicketID = ft.TicketID;";
         } else {
             $query = "SELECT * FROM FlightTicket";
         }
@@ -53,13 +57,18 @@ class Controller {
     }
 
     function bookFlight($userId, $ticketId) {
+        $query = "SELECT * FROM UserBooking where UserId = " . $userId . " and TicketId = " . $ticketId . ";";
+        $result = $this->conn->query($query);
+        if ($result->num_rows > 0) {
+            return "You have already booked this flight!";
+        }
+
         $query = "INSERT INTO UserBooking (UserID, TicketID) VALUES ('%d','%d');";
         $query = sprintf($query, $userId, $ticketId);
         if ($this->conn->query($query)) {
-            return true;
+            return "Successfully!";
         }
-        return false;
+        return "Error booking ticket!";
     }
-    
+
 }
-    
