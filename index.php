@@ -28,7 +28,7 @@ if (!isset($_SESSION['logged'])) {
             $controller->getFlights();
             ?>
         </div>
-        <?php include_once "_modalPopup.html" ?>
+        <?php include_once "_modalPopup.php" ?>
 
 
     </body>

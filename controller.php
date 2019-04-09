@@ -40,7 +40,7 @@ class Controller {
         }
         $result = $this->conn->query($query);     //result has a collection of 'rows' returned from query
         if ($result->num_rows > 0) {
-            echo '<p style="margin-left: 20px">' . mysqli_num_rows($result) . ' result(s)</p>';
+            echo '<p style="margin-left: 20px">' . mysqli_num_rows($result) . ' count(s)</p>';
             while ($row = $result->fetch_assoc()) {
                 $ticketid = $row["TicketID"];
                 $airline = $row["Airline"];
