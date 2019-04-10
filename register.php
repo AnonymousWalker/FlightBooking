@@ -13,10 +13,10 @@
             <h2>Create a new account</h2>
             <form id="signup-form" method="POST" action="register.php">
                 <div class="flex-column">
-                    <input type="text" name="username" placeholder="Username" />
-                    <input type="password" name="password" placeholder="Password" />
-                    <input type="text" name="firstname" placeholder="First Name" />
-                    <input type="text" name="lastname" placeholder="Last Name" />
+                    <input type="text" name="username" placeholder="Username" required />
+                    <input type="password" name="password" placeholder="Password" required/>
+                    <input type="text" name="firstname" placeholder="First Name" required/>
+                    <input type="text" name="lastname" placeholder="Last Name" required/>
                     <input type="text" name="email" placeholder="someone@abc.com" />
                     <input type="text" name="address" placeholder="Street, city, state, zip..." />
                     

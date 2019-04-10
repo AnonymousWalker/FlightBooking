@@ -1,31 +1,7 @@
 <?php
 require_once '_navigationBar.php';
 require_once 'controller.php';
-?>
-<html>
-    <head>
-        <title>Login</title>
-        <link rel="stylesheet" href="CSS/login.css"/>
-        <link rel="stylesheet" href="CSS/home.css"/>
-        <script src="JS/lib/jquery-3.3.1.min.js"></script>
-        <script src="JS/login.js"></script>
-        <script src="JS/home.js"></script>
-    </head>
-    <body>
-        <div class="log-form">
-            <h2>Login to your account</h2>
-            <form id="login-form" method="POST" action="login.php">
-                <div class="flex-column">
-                    <input type="text" name="username" title="username" placeholder="Username" />
-                    <input type="password" name="password" title="username" placeholder="Password" />
-                    <button type="submit" name="submit" class="btn" style="background: #68f57e">Login</button>
-                </div>
-            </form>
-        </div>
-    </body>
-</html>
 
-<?php
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -50,7 +26,32 @@ if (isset($_POST['submit'])) {
             header("Location: index.php");
              
         } else {
-            echo "Incorrect username or password! Please try again.";
+            echo '<h3 style="color:red; text-align:center;">Incorrect username or password! Please try again.</h3>';
         }
     }
 }
+?>
+
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="CSS/login.css"/>
+        <link rel="stylesheet" href="CSS/home.css"/>
+        <script src="JS/lib/jquery-3.3.1.min.js"></script>
+        <script src="JS/login.js"></script>
+        <script src="JS/home.js"></script>
+    </head>
+    <body>
+        <div class="log-form">
+            <h2>Login to your account</h2>
+            <form id="login-form" method="POST" action="login.php">
+                <div class="flex-column">
+                    <input type="text" name="username" title="username" placeholder="Username" />
+                    <input type="password" name="password" title="username" placeholder="Password" />
+                    <button type="submit" name="submit" class="btn" style="background: #68f57e">Login</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
+
