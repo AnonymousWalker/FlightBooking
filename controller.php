@@ -56,6 +56,9 @@ class Controller {
     }
 
     function bookFlight($userId, $ticketId) {
+        if (!isset($userId) || !isset($ticketId)){
+            return false;
+        }
         $query = "SELECT * FROM UserBooking where UserId = " . $userId . " and TicketId = " . $ticketId . ";";
         $result = $this->conn->query($query);
         if ($result->num_rows > 0) {

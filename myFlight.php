@@ -1,7 +1,8 @@
 <?php
-//ob_start();
+ob_start();
 include_once "_navigationBar.php";
 require_once "controller.php";
+
 ?>
 <html>
     <head>
@@ -32,11 +33,11 @@ require_once "controller.php";
 //AJAX booking
 if (isset($_GET['ticketId'])) {
     ob_end_clean(); //clear the all html string above this 
-    header('Content-Type: application/json');
 
     if (!$_SESSION['logged']) {
+        header('Content-Type: application/json');
         echo json_encode(array('error' => '1', 'message' => 'Login is required to process!', 'url' => "login.php"));
-        exit;
+        return;
     }
     if (isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
         //book flight
@@ -47,9 +48,11 @@ if (isset($_GET['ticketId'])) {
         $result = $controller->bookFlight($userId, $ticketId);
 
         if ($result) {
+            header('Content-Type: application/json');
             echo json_encode(array('error' => '0', 'message' => "Successfully booked!",
                 'url' => basename($_SERVER['PHP_SELF'])));
         } else {
+            header('Content-Type: application/json');
             echo json_encode(array('error' => '2', 'message' => 'You have already booked this flight!', 'url' => ''));
         }
     }

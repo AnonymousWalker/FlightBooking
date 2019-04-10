@@ -5,6 +5,7 @@ include_once '_navigationBar.php';
 if (!isset($_SESSION['logged'])) {
     $_SESSION['logged'] = 0;
 }
+echo isset($_SESSION['logged'])."/".($_SESSION['logged'])."_".isset($_SESSION['userid'])."/".$_SESSION['userid'];
 ?>
 
 <html style="height: 100%;">
