@@ -5,7 +5,6 @@ include_once '_navigationBar.php';
 if (!isset($_SESSION['logged'])) {
     $_SESSION['logged'] = 0;
 }
-echo isset($_SESSION['logged'])."/".($_SESSION['logged'])."_".isset($_SESSION['userid'])."/".$_SESSION['userid'];
 ?>
 
 <html style="height: 100%;">
@@ -20,7 +19,7 @@ echo isset($_SESSION['logged'])."/".($_SESSION['logged'])."_".isset($_SESSION['u
     </head>
     <body>
         <div>
-            <img src="https://www.time8.in/wp-content/uploads/2018/01/Thailand-Flight.jpg" style="width: 100%;"/>
+            <img src="images/Thailand-Flight.jpg" style="width: 100%;"/>
         </div>
         <div class="main">
             <h2 style="margin-left: 20px">All available flights here!</h2>
